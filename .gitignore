@@ -1,5 +1,6 @@
-# Created by https://www.gitignore.io/api/vim,python,pycharm,visualstudio
-# Edit at https://www.gitignore.io/?templates=vim,python,pycharm,visualstudio
+# Datasets folder and other
+
+DL1/dataset/flowers/
 
 ### PyCharm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
