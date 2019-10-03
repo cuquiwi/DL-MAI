@@ -26,7 +26,7 @@ model.add(Dense(8,activation='relu'))
 model.add(Dense(5,activation=(tf.nn.softmax)))
 
 model.compile(optimizer='sgd', loss='categorical_crossentropy', metrics=['accuracy'])
-hist = model.fit_generator(train_gen, validation_data=valid_gen, steps_per_epoch=100, epochs=50)
+hist = model.fit_generator(train_gen, validation_data=valid_gen, steps_per_epoch=100, epochs=50, validation_steps=len(valid_gen))
 
 # save the plot
 matplotlib.use('Agg')
