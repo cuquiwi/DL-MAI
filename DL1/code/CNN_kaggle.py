@@ -4,8 +4,9 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation, Conv2D, MaxPooling2D, Flatten, Dropout, BatchNormalization
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import Adam
-import matplotlib.pyplot as plt
 import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 batch_size = 50
 
@@ -58,7 +59,6 @@ hist = model.fit_generator(train_gen, validation_data=valid_gen,
         validation_steps=len(valid_gen))
 
 # save the plot
-matplotlib.use('Agg')
 # Accuracy plot
 plt.plot(hist.history['acc'])
 plt.plot(hist.history['val_acc'])
