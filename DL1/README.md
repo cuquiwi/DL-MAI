@@ -49,3 +49,20 @@ Dense - 5
 # A model from kaggle
 
 We then checked a model from kaggle to start with.
+
+
+**TODO**
+
+[Accuracy](plots/3_cnn_acc.pdf)
+[Loss](plots/3_cnn_loss.pdf)
+
+
+# More convolutional layer
+
+We tried to add a convolutional layer with the same kernel same but a more filters to follow the structure. For this we had to also resize the pictures.
+
+[Accuracy](plots/4_cnn_acc.pdf)
+[Loss](plots/4_cnn_loss.pdf)
+
+
+**TODO**
