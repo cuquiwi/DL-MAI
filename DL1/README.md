@@ -48,13 +48,45 @@ Dense - 5
 
 # A model from kaggle
 
-We then checked a model from kaggle to start with.
+We then checked a model from kaggle to start with.  
+This is a far more complex model. It follows also some notions that we've seen on the course,
+like a fixed small kernel, a growing pyramidal structure, and some dropouts and normalizations.
 
-
-**TODO**
 
 [Accuracy](plots/3_cnn_acc.pdf)
 [Loss](plots/3_cnn_loss.pdf)
+
+This model actually learns something and has a pretty good accuracy without overfitting.  
+We will try to modify this model to try to find an improvement,
+ and then see the effects that might cause each modification.
+
+## Model
+conv - 64 - 3x3  
+conv - 64 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 128 - 3x3  
+conv - 128 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 256 - 3x3  
+conv - 256 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 512 - 3x3  
+conv - 512 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+Flatten  
+Dense - 1000  
+Dropout - 0.2  
+Dense - 512  
+Dropout - 0.2  
+Dense - 5  
 
 
 # More convolutional layer
@@ -64,5 +96,115 @@ We tried to add a convolutional layer with the same kernel same but a more filte
 [Accuracy](plots/4_cnn_acc.pdf)
 [Loss](plots/4_cnn_loss.pdf)
 
+The model took more time to train, it's more complex, but the learning did not improve, so we keep the less complex model. 
 
-**TODO**
+
+## Model
+conv - 64 - 3x3  
+conv - 64 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 128 - 3x3  
+conv - 128 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 256 - 3x3  
+conv - 256 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 512 - 3x3  
+conv - 512 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 1024 - 3x3  
+conv - 1024 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Flatten  
+Dense - 1000  
+Dropout - 0.2  
+Dense - 512  
+Dropout - 0.2  
+Dense - 5  
+
+# Model without BatchNormalization
+
+What would happen if we removed the BatchNormalization?
+
+
+[Accuracy](plots/5_cnn_acc.pdf)
+[Loss](plots/5_cnn_loss.pdf)
+
+The learning that we could see previously, in other models, is no more. 
+This model does not learn at all, like the first models.
+I guess this is due to some weights explosions or vanishment.
+There is a weird phenomen that happens also, is that the validation is better than the training. We could not found an explanation for that.
+
+## Model
+conv - 64 - 3x3  
+conv - 64 - 3x3  
+maxPool - 2x2  
+Dropout - 0.2  
+conv - 128 - 3x3  
+conv - 128 - 3x3  
+maxPool - 2x2  
+Dropout - 0.2  
+conv - 256 - 3x3  
+conv - 256 - 3x3  
+maxPool - 2x2  
+Dropout - 0.2  
+conv - 512 - 3x3  
+conv - 512 - 3x3  
+maxPool - 2x2  
+Dropout - 0.2  
+Flatten  
+Dense - 1000  
+Dropout - 0.2  
+Dense - 512  
+Dropout - 0.2  
+Dense - 5  
+
+# Model without Dropouts
+
+[Ioffe and Szegedy](https://arxiv.org/pdf/1502.03167v3.pdf) claimed that with Batch Normalization we can, in some cases, eliminate the need of Dropout. So we tried to completely eliminate the Dropout layers.
+
+[Accuracy](plots/nodrop_cnn_acc.pdf)
+[Loss](plots/nodrop_cnn_loss.pdf)
+
+And indeed the results where pretty good. Since those results are pretty good and the model is less complex we will try to improve this model.
+
+## Model
+conv - 64 - 3x3  
+conv - 64 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+conv - 128 - 3x3  
+conv - 128 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+conv - 256 - 3x3  
+conv - 256 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+conv - 512 - 3x3  
+conv - 512 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Flatten  
+Dense - 1000  
+Dense - 512  
+Dense - 5  
+
+# Augmenting the epochs
+
+Up until now we have used a maximum of 100 epoch, what happens if we increase the epochs? 
+The model will still learn? Will it overfit?
+
+[Accuracy](plots/200epoch_cnn_acc.pdf)
+[Loss](plots/200epoch_cnn_loss.pdf)
+
+As expected the model did not improve much and it started to overfit.
