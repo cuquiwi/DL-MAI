@@ -199,6 +199,94 @@ Dense - 1000
 Dense - 512  
 Dense - 5  
 
+# Model with adding/removing a hidden FNN layer
+
+We try to add/remove an hidden layer of 512 nodes in the full connected part of the model.
+
+## 512 Addition
+
+[Accuracy](plots/cnn_Hidden512_add_acc.pdf)
+[Loss](plots/cnn_Hidden512_add_loss.pdf)
+
+conv - 64 - 3x3  
+conv - 64 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 128 - 3x3  
+conv - 128 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 256 - 3x3  
+conv - 256 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 512 - 3x3  
+conv - 512 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+Flatten  
+Dense - 1000  
+Dropout - 0.2  
+Dense - 512  
+Dropout - 0.2  
+Dense - 512  
+Dropout - 0.2  
+Dense - 5  
+
+## Models with different dropout rates
+
+### 0.05
+
+[Accuracy](plots/cnn_dropout_005_acc.pdf)
+[Loss](plots/cnn_dropout_005_loss.pdf)
+
+### 0.08
+
+[Accuracy](plots/cnn_dropout_008_acc.pdf)
+[Loss](plots/cnn_dropout_008_loss.pdf)
+
+
+
+We can see that a decrease in dropout causes the training and validation accuracy of the model to be low (around 0.6).
+
+
+
+## 512 Removal
+
+[Accuracy](plots/cnn_Hidden512_rem_acc.pdf)
+[Loss](plots/cnn_Hidden512_rem_loss.pdf)
+
+conv - 64 - 3x3  
+conv - 64 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 128 - 3x3  
+conv - 128 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 256 - 3x3  
+conv - 256 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+conv - 512 - 3x3  
+conv - 512 - 3x3  
+maxPool - 2x2  
+BatchNorm  
+Dropout - 0.2  
+Flatten  
+Dense - 1000  
+Dropout - 0.2  
+Dense - 5  
+
+
+
 # Augmenting the epochs
 
 Up until now we have used a maximum of 100 epoch, what happens if we increase the epochs? 
@@ -208,3 +296,4 @@ The model will still learn? Will it overfit?
 [Loss](plots/200epoch_cnn_loss.pdf)
 
 As expected the model did not improve much and it started to overfit.
+
