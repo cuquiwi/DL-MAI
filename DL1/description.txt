@@ -1,0 +1,7 @@
+Work done by Diego Saby and Senne Deproost
+------------------------------------------
+
+The dataset used for training this model consist of 4242 images of flowers of 5 different categories.
+Photos are of different sizes and comes from Kaggle: https://www.kaggle.com/alxmamaev/flowers-recognition.
+
+All the code used from diving the dataset into train/validation and the different models tryed can be found at :https://github.com/cuquiwi/DL-MAI/tree/master/DL1/code
