@@ -7,7 +7,7 @@ We also separated the dataset into 2 folders: for validation and for training. T
 
 
 
-# Begining
+# Beginning
 
 We first started with the model given as example for the mnist dataset. We adapted it in order to take our dataset input size and classification types. We even let the images stay in grayscale.
 
@@ -237,22 +237,6 @@ Dense - 512
 Dropout - 0.2  
 Dense - 5  
 
-## Models with different dropout rates
-
-### 0.05
-
-[Accuracy](plots/cnn_dropout_005_acc.pdf)
-[Loss](plots/cnn_dropout_005_loss.pdf)
-
-### 0.08
-
-[Accuracy](plots/cnn_dropout_008_acc.pdf)
-[Loss](plots/cnn_dropout_008_loss.pdf)
-
-
-
-We can see that a decrease in dropout causes the training and validation accuracy of the model to be low (around 0.6).
-
 
 
 ## 512 Removal
@@ -286,6 +270,22 @@ Dropout - 0.2
 Dense - 5  
 
 
+
+# Models with different dropout rates
+
+### 0.05
+
+[Accuracy](plots/cnn_dropout_005_acc.pdf)
+[Loss](plots/cnn_dropout_005_loss.pdf)
+
+### 0.08
+
+[Accuracy](plots/cnn_dropout_008_acc.pdf)
+[Loss](plots/cnn_dropout_008_loss.pdf)
+
+
+
+We can see that a decrease in dropout causes the training and validation accuracy of the model to be low (around 0.6).
 
 # Augmenting the epochs
 
