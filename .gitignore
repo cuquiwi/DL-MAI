@@ -357,7 +357,7 @@ _TeamCity*
 .axoCover/*
 !.axoCover/settings.json
 
-# Visual Studio code coverage results
+# Visual Studio src coverage results
 *.coverage
 *.coveragexml
 
