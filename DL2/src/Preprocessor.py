@@ -53,3 +53,7 @@ class Preprocessor:
         # normalize input
         self.network_input = network_input / float(n_vocab)
         self.network_output = keras.utils.to_categorical(network_output)
+
+    def save_io(self):
+        np.save("network_output", self.network_output)
+        np.save("network_input", self.network_input)
