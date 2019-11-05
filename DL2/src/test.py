@@ -2,5 +2,5 @@ from Preprocessor import *
 from Generator import *
 
 prep = Preprocessor()
-gen = Generator()
-gen.load()
+#gen = Generator()
+#gen.load()
