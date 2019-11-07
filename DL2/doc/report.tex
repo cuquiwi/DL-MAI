@@ -1,13 +1,32 @@
-\documentclass{article}
+\documentclass[11pt]
+{article}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage[bottom]{footmisc}
 \usepackage{babel}[English]
 
 \title{DL LAB2: An aplication with RNN}
- \abstract{test}
+\author{Senne Deproost and Diego Saby}
+\date{November 2019}
+
+
 \begin{document}
 \maketitle
+\section{Introduction}
 
+\begin{itemize}
+	\item talk about RNN and LSTM
+	\item Talk about how RNN is useful for music
+	\item Introduce our project -> RNN on Chopin Nocturnes
+	\item Something else?...
+\end{itemize}
+
+\section{Preprocess the data}
+One of the first questions we were opposed to was how to encode music in order to train the Neural Network. Our source files are midi files. They are an useful way to encode the music where we can extract the notes and their duration from the file.\\
+To simplify the problem we decided to abstract the notes duration and just use the notes pitch. \\
+\subsection{Enumerating the notes}
+Our first attempt was done inspired by some code found on the internet to produce video games music. \textbf{add reference}\\
+To extract the notes the notes from midi file we used a library called \textit{Music21}. It provided us with the notes names or chord names that were played. From there we have a sequence of notes names. Then we just assign the notes a number.
+For the prediction we used a vector of all the notes and a with a 0 for the next note that follows the sequence.
 
 \end{document}
