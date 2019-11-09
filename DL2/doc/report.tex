@@ -20,12 +20,13 @@ One DL architecture we'll focus on in this lab report is the \textit{Recurrent N
 
 Automated content creation using DL models has known a significant rise in popularity over the past years. With \textit{Generative Adverserial Networks} (GAN's), we can use two competing networks to train a generator for images \cite{Goodfellow2014}. In this architecture, one network, the has to mimic given image data input distribution and another adversarial network that has to estimate the loss of the predicted regression with given training data. This prediction can then be used to optimize the generative network. Other types of models like \textit{transformers}, recently used in OpenAI's GPT-2 model \cite{Radford}, can generate human-like text paragraphs with the potential of passing the famous Turing test. With a rise in the exploration of the generative content field, researches already used RNN based models to generate content like images \cite{Gregor}, voice synthesis \cite{Oord2016,VanDenOord2016} and music \cite{Oord2016}.
 
-In this report, we will focus on three types of models in the task of creating music from MIDI files. Apart from regular RNNs, we will experiment on \textit{Long Short-Term Memory} (LSTM) and \textit{Gated Recurrent Unit } (GRU) models
+In this report, we will focus on three types of models in the task of creating music from MIDI files. Apart from regular RNNs, we will experiment on \textit{Long Short-Term Memory} (LSTM)\cite{Hochreiter:1997:LSM:1246443.1246450} and \textit{Gated Recurrent Unit } (GRU) models \cite{Cho}.
 
 \subsection{LSTM}
+An LSTM is a form of RNN which solves the problem of the large decay in loss function gradient over long periods of time. Specialized memory cells are used to memorize several past activations for longer periods of time. In addition, the network contains gates to control the information flow to and from memory and when it can be returned to its initial status.
 
 \subsection{GRU}
-
+GRU are similar in construction to LSTM that they have gates to control the specialized memory cells. However, these models are simplified containing less gates and dont make the distinction between memory cells and normal ones \cite{Chung}.
 
 
 
