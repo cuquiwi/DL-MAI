@@ -4,8 +4,9 @@
 \usepackage{hyperref}
 \usepackage[bottom]{footmisc}
 \usepackage{babel}[English]
+\usepackage{apacite}
 
-\title{DL LAB2: An aplication with RNN}
+\title{DL LAB 2: An application with RNN}
 \author{Senne Deproost and Diego Saby}
 \date{November 2019}
 
@@ -14,6 +15,17 @@
 \maketitle
 \section{Introduction}
 
+
+
+In the field of machine learning we try create computational models to find solutions for a wide set of tasks. One of the more popular problems to solve are the classification of instances and function approximation with regression. Solutions like \textit{Support Vector Machines} and \textit{Decision Trees} have already proven their worth in the past. Techniques from the deep learning (DL) sub-field of machine learning have shown their usability when tackling on data with high dimen\-sionality. Deep learning's ability to scale better with these kinds of data makes it useful in many application domains like machine control and decision support systems. Variations in the model's architecture could insure better performance on a domain specific task.
+
+One DL architecture we'll focus on in this lab report is the \textit{Recurrent Neural Network} architecture. Whereas classical \textit{Feedforward Neural Network} (FNN) only allows the passage of activation through the neuron layers, a RNN network will remember the neuron activations from a previous step in time. This is implemented with the inclusion of memory nodes that will hold on to previous encountered activation values. An advantage of this kind of networks is the usage of \textit{Temporal Sequences}, allowing the model to train on data like text sentences, music recordings and streams of data.
+
+Automated content creation using DL models has known a significant rise in popularity over the past years. With \textit{Generative Adverserial Networks} (GAN), we can use two competing networks to train a generator for images \cite{Goodfellow2014}. In this architecture, one network, the has to mimic given image data input distribution and another adversarial network that has to estimate the loss of the predicted regression with given training data. This prediction can then be used to optimize the generative network.
+
+
+
+
 \begin{itemize}
 	\item talk about RNN and LSTM
 	\item Talk about how RNN is useful for music
@@ -21,9 +33,6 @@
 	\item Something else?...
 \end{itemize}
 
-In the field of machine learning we try create computational models to find solutions for a wide set of tasks. One of the more popular problems to solve are the classification of instances and function approximation with regression. Techniques from the deep learning (DL) sub-field of machine learning have proven their usability when tackling on data with high dimen\-sionality. Deep learning's ability to scale better with these kinds of data makes it useful in many application domains like machine control and decision support systems. A lot of different types of DL models exists to be 
-
-One DL architecture we'll focus on in this lab report is 
 
 \section{Preprocess the data}
 One of the first questions we were opposed to was how to encode music in order to train the Neural Network. Our source files are midi files. They are an useful way to encode the music where we can extract the notes and their duration from the file.\\
@@ -32,5 +41,8 @@ To simplify the problem we decided to abstract the notes duration and just use t
 Our first attempt was done inspired by some code found on the internet to produce video games music. \textbf{add reference}\\
 To extract the notes the notes from midi file we used a library called \textit{Music21}. It provided us with the notes names or chord names that were played. From there we have a sequence of notes names. Then we just assign the notes a number.
 For the prediction we used a vector of all the notes and a with a 0 for the next note that follows the sequence.
+
+\bibliographystyle{apacite}
+\bibliography{references}
 
 \end{document}
