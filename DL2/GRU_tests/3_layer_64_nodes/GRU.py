@@ -39,19 +39,16 @@ x_test, y_test, _ = prepare_notes(notes_test)
 
 n_prev = 30
 model = Sequential()
-model.add(GRU(256, input_shape=(n_prev, 1), return_sequences=True))
-model.add(Dropout(0.6))
-model.add(GRU(128, return_sequences=True))
-model.add(Dropout(0.6))
+model.add(GRU(64, input_shape=(n_prev, 1), return_sequences=True))
+model.add(GRU(64, return_sequences=True))
 model.add(GRU(64, return_sequences=False))
-model.add(Dropout(0.6))
 model.add(Dense(1))
 model.add(Activation('linear'))
 optimizer = Adam(lr=0.001)
 model.compile(loss='mse', optimizer=optimizer)
 
 hist = model.fit(np.array(x_train), np.array(y_train),
-    batch_size=128, epochs=500, verbose=1,
+    batch_size=64, epochs=200, verbose=1,
     validation_data=(np.array(x_test), np.array(y_test)))
 
 prediction = model.predict(np.array(x_test))
@@ -59,8 +56,8 @@ prediction = np.squeeze(prediction)
 prediction = np.squeeze(scaler.inverse_transform(prediction.reshape(-1,1)))
 prediction = [int(i) for i in prediction]
 
-with open('../data/notes_result2', 'wb') as filepath:
+with open('notes_result', 'wb') as filepath:
     pickle.dump(prediction, filepath)
 
-with open('/trainHistoryDict', 'wb') as file_pi:
+with open('trainHistoryDict', 'wb') as file_pi:
     pickle.dump(hist.history, file_pi)
