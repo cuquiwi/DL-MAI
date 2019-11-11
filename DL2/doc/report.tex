@@ -31,14 +31,21 @@ An LSTM is a form of RNN which solves the problem of the large decay in loss fun
 \subsection{GRU}
 GRU are similar in construction to LSTM that they have gates to control the specialized memory cells. However, these models are simplified containing less gates and dont make the distinction between memory cells and normal ones \cite{Chung}.
 
+\begin{figure}
+	\includegraphics[width=\linewidth]{comp.png}
+	\caption{An overview of the three kinds of models used in the experiments. Left we have a simple RNN node containing a simple $tanh$ activation function. In the middle the internal gates of the LSTM node are shown. The right contains the simplified layout of a GRU network node.}
+	\label{fig:fig1}
+\end{figure}
 
 
-\begin{itemize}
-	\item talk about RNN and LSTM
-	\item Talk about how RNN is useful for music
-	\item Introduce our project -> RNN on Chopin Nocturnes
-	\item Something else?...
-\end{itemize}
+
+
+%\begin{itemize}
+%	\item talk about RNN and LSTM
+%	\item Talk about how RNN is useful for music
+%	\item Introduce our project -> RNN on Chopin Nocturnes
+%	\item Something else?...
+%\end{itemize}
 
 
 \section{Preprocess the data}
@@ -50,10 +57,13 @@ To extract the notes the notes from midi file we used a library called \textit{M
 For the prediction we used a vector of all the notes and a with a 0 for the next note that follows the sequence.
 
 \section{Experiments}
+In the experiments, we mainly focus on the three different kind of models as described before. We first vary the numbers of node in the hidden layers of the network. Afterwards, we change the number of layers in the network. We train with a fixed batch size of 64 during a 200 epoch session. The results will be discussed based upon the loss function of the model and the qualitative analysis of the generated music fragments.
+
+
 \subsection{Vanilla RNN}
 \subsection{LSTM}
 \subsection{GRU}
-Last we run experiments with the GRU variant of RNN's. We first vary the numbers of node in the hidden layers of the network. Afterwards, we change the number of layers in the network. 
+Last we run experiments with the GRU variant of RNN's. 
 
 \subsubsection{Number of nodes}
 \subsubsection{Number of layers}
