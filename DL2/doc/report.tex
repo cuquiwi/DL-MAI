@@ -7,6 +7,7 @@
 \usepackage[bottom]{footmisc}
 \usepackage{babel}[English]
 \usepackage{apacite}
+\pagestyle{empty}
 
 \title{DL LAB 2: An application with RNN}
 \author{Senne Deproost and Diego Saby}
@@ -81,7 +82,86 @@ In the experiments, we mainly focus on the three different kind of models as des
 
 
 \subsection{Vanilla RNN}
+
+
+
+\begin{figure}[ht] 
+\hspace*{-2cm}  
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/64_training.png} 
+	\end{minipage}%%
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/64_validation.png} 
+	\end{minipage} 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/128_training.png} 
+	\end{minipage}%% 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/128_validation.png} 
+	\end{minipage} 
+\hspace*{-2cm}  
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/1_comp.png} 
+	\end{minipage}%%
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/2_comp.png} 
+	\end{minipage} 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/3_comp.png} 
+	\end{minipage}%% 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/4_comp.png} 
+	\end{minipage} 
+\end{figure}
+
+
+
 \subsection{LSTM}
+\begin{figure}[ht] 
+	\hspace*{-2cm}  
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/64_training.png} 
+	\end{minipage}%%
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/64_validation.png} 
+	\end{minipage} 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/128_training.png} 
+	\end{minipage}%% 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/128_validation.png} 
+	\end{minipage} 
+\hspace*{-2cm}  
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/1_comp.png} 
+	\end{minipage}%%
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/2_comp.png} 
+	\end{minipage} 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/3_comp.png} 
+	\end{minipage}%% 
+	\begin{minipage}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/4_comp.png} 
+	\end{minipage} 
+\end{figure}
+
 \subsection{GRU}
 Last we run experiments with the GRU variant of RNN's. 
 
