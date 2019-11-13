@@ -54,11 +54,27 @@ GRU are similar in construction to LSTM that they have gates to control the spec
 \section{Preprocess the data}
 One of the first questions we were opposed to was how to encode music in order to train the Neural Network. Our source files are midi files. They are an useful way to encode the music where we can extract the notes and their duration from the file.\\
 To simplify the problem we decided to abstract the notes duration and just use the notes pitch. \\
+
 \subsection{Enumerating the notes}
 Our first attempt was done inspired by some code found on the internet to produce video games music. \textbf{add reference}\\
-To extract the notes the notes from midi file we used a library called \textit{Music21}. It provided us with the notes names or chord names that were played. From there we have a sequence of notes names. Then we just assign the notes a number.
+To extract the notes the notes from midi file we used a library called \textit{Music21}. It provided us with the notes names or chord names that were played. From there we have a sequence of notes names. Then we just assign the notes a number from 1 to the length of the vocabulary (notes and chord names).
 For the prediction we used a vector of all the notes and a with 1 for the next note that follows the sequence and 0 for the others.\\
-After several experiments using a as the last layer a Fully connected NN with a \textit{softmax} activation function and taking the note with the biggest probability to be the next one as the prediction of the next note, the results were disappointing. No matter what was the input it always yielded the same note. After changing the RNN architecture, the learning rate, the optimization function, it changed the note that was predicted, but always was a sequence of the same  note.
+After several experiments using a as the last layer a Fully connected NN with a \textit{softmax} activation function and taking the note with the biggest probability to be the next one as the prediction of the next note, the results were disappointing
+ No matter what was the input it always yielded the same note. After changing the RNN architecture, the learning rate, the optimization function, it changed the note that was predicted, but always was a sequence of the same  note.
+
+\subsection{Notes as Integers}
+Our second approach was to translate directly a note pitch into an integer. 
+The lower the pitch the bigger the integer.
+This could be done thanks to another library called \textit{mido}, and was inspired from a project on github. \textbf{ add reference}\\
+And for the prediction we used a linear regression as the last layer of the RNN architecture. 
+Since the notes are just integers and not floating numbers the result was truncated in order to transform it later into a note.\\
+This approach made more sense.
+Not only the notes have an actual order, but there is also the fact that we could even produce notes that were never seen before.
+Our first attempt with this approach was surprisingly good.
+After testing, not only the sequence of notes were different of each other, but the beginning of the \textit{song} produced was not bad to hear.
+But most of the \textit{song} produced afterwards one could ask itself if it's not a sequence of random notes.
+It sounded like a child smashing random keys on a piano.
+
 
 \section{Experiments}
 In the experiments, we mainly focus on the three different kind of models as described before. We first vary the numbers of node in the hidden layers of the network. Afterwards, we change the number of layers in the network. We train with a fixed batch size of 64 during a 200 epoch session. The results will be discussed based upon the loss function of the model and the qualitative analysis of the generated music fragments. We fixed the window lag of notes to 30 notes, to predict the next one, and we did not put any skipping to generate the data training.
@@ -73,10 +89,22 @@ Last we run experiments with the GRU variant of RNN's.
 \subsubsection{Number of layers}
 
 
-
-
 \section{Conclusion}
+RNNs can generate music. 
+Given a good training set the network could learn sequence of notes that are good to hear and maybe avoid sequences that do not sound good.
+But how \textit{creative} could it get?\\
+One of the main difficulties with this approach is that evaluating music is really subjective.
+There is not a metric that can objectively evaluate how good a sequence of notes is.\\
+One of our main problems that we can see is how bad the accuracy was when comparing the training set with a validation set.
+This is not surprising, since,  even though the compositor was the same and the style was similar (we only worked on the Chopin's Nocturnes), the songs in the validation set were different and new from the training set.\\
+\\
 
+\textbf{Talk more about the results, were they good? what happened? What was the best architecture}\\
+\\
+
+For further work on this we could see the effect of changing the \textit{windowing} for the sequence of notes in the training set.
+And to produce more realistic music add the tempo to the pitch to produce real notes.\\
+We do believe that some interesting music can be generated with RNNs but never as good and creative as humans.
 
 \bibliographystyle{apacite}
 \bibliography{references}
