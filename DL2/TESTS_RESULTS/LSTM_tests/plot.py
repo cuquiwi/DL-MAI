@@ -31,7 +31,7 @@ for dir in dirs:
 ## Plot different layers for 64 nodes training
 epochs = range(1, 201)
 plt.title("LSTM 64 nodes per layer training")
-plt.ylabel("Amount")
+# plt.ylabel("Amount")
 plt.xlabel("Epochs")
 
 plt.plot(epochs, datas["1_layer_64_nodes"]["loss"], color="blue", label="loss 1 layer")
@@ -52,7 +52,7 @@ plt.savefig("./plots/64_training.png")
 ## Plot different layers for 64 nodes validation
 plt.clf()
 plt.title("LSTM 64 nodes per layer validation")
-plt.ylabel("Amount")
+# plt.ylabel("Amount")
 plt.xlabel("Epochs")
 
 plt.plot(epochs, datas["1_layer_64_nodes"]["val_loss"], color="blue", label="val_loss 1 layer")
@@ -73,7 +73,7 @@ plt.savefig("./plots/64_validation.png")
 ## Plot different layers for 128 nodes training
 plt.clf()
 plt.title("LSTM 128 nodes per layer training")
-plt.ylabel("Amount")
+# plt.ylabel("Amount")
 plt.xlabel("Epochs")
 
 plt.plot(epochs, datas["1_layer_128_nodes"]["loss"], color="blue", label="loss 1 layer")
@@ -94,7 +94,7 @@ plt.savefig("./plots/128_training.png")
 ## Plot different layers for 128 nodes validation
 plt.clf()
 plt.title("LSTM 128 nodes per layer validation")
-plt.ylabel("Amount")
+# plt.ylabel("Amount")
 plt.xlabel("Epochs")
 
 plt.plot(epochs, datas["1_layer_128_nodes"]["val_loss"], color="blue", label="val_loss 1 layer")
@@ -112,10 +112,53 @@ plt.legend()
 plt.savefig("./plots/128_validation.png")
 
 
-## Plot training vs validation (64 and 128 together), per layer
+## Plot training vs validation (64 and 128 together), 1 layer
 plt.clf()
 plt.title("LSTM 1 layer")
-plt.ylabel("Amount")
+# plt.ylabel("Amount")
 plt.xlabel("Epochs")
-plt.plot(epochs, datas["1_layer_64_nodes"]["loss"], color="blue", label="loss 1 layer")
-plt.plot(epochs, datas["1_layer_128_nodes"]["loss"], color="blue", label="loss 1 layer")
+plt.plot(epochs, datas["1_layer_64_nodes"]["loss"], color="blue", linestyle="--", label="loss 64 nodes")
+plt.plot(epochs, datas["1_layer_64_nodes"]["val_loss"], color="blue", label="val_loss 64 nodes")
+plt.plot(epochs, datas["1_layer_128_nodes"]["loss"], color="green", linestyle="--", label="loss 128_nodes")
+plt.plot(epochs, datas["1_layer_128_nodes"]["val_loss"], color="green", label="val_loss 128 nodes")
+plt.legend()
+plt.savefig("./plots/1_comp.png")
+
+
+## Plot training vs validation (64 and 128 together), 2 layers
+plt.clf()
+plt.title("LSTM 2 layers")
+# plt.ylabel("Amount")
+plt.xlabel("Epochs")
+plt.plot(epochs, datas["2_layer_64_nodes"]["loss"], color="blue", linestyle="--", label="loss 64 nodes")
+plt.plot(epochs, datas["2_layer_64_nodes"]["val_loss"], color="blue", label="val_loss 64 nodes")
+plt.plot(epochs, datas["2_layer_128_nodes"]["loss"], color="green", linestyle="--", label="loss 128_nodes")
+plt.plot(epochs, datas["2_layer_128_nodes"]["val_loss"], color="green", label="val_loss 128 nodes")
+plt.legend()
+plt.savefig("./plots/2_comp.png")
+
+
+## Plot training vs validation (64 and 128 together), 2 layers
+plt.clf()
+plt.title("LSTM 3 layers")
+# plt.ylabel("Amount")
+plt.xlabel("Epochs")
+plt.plot(epochs, datas["3_layer_64_nodes"]["loss"], color="blue", linestyle="--", label="loss 64 nodes")
+plt.plot(epochs, datas["3_layer_64_nodes"]["val_loss"], color="blue", label="val_loss 64 nodes")
+plt.plot(epochs, datas["3_layer_128_nodes"]["loss"], color="green", linestyle="--", label="loss 128_nodes")
+plt.plot(epochs, datas["3_layer_128_nodes"]["val_loss"], color="green", label="val_loss 128 nodes")
+plt.legend()
+plt.savefig("./plots/3_comp.png")
+
+
+## Plot training vs validation (64 and 128 together), 2 layers
+plt.clf()
+plt.title("LSTM 4 layers")
+# plt.ylabel("Amount")
+plt.xlabel("Epochs")
+plt.plot(epochs, datas["4_layer_64_nodes"]["loss"], color="blue", linestyle="--", label="loss 64 nodes")
+plt.plot(epochs, datas["4_layer_64_nodes"]["val_loss"], color="blue", label="val_loss 64 nodes")
+plt.plot(epochs, datas["4_layer_128_nodes"]["loss"], color="green", linestyle="--", label="loss 128_nodes")
+plt.plot(epochs, datas["4_layer_128_nodes"]["val_loss"], color="green", label="val_loss 128 nodes")
+plt.legend()
+plt.savefig("./plots/4_comp.png")
