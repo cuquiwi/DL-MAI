@@ -1,8 +1,13 @@
-import pickle
+import pickle, sys
 from mido import MidiFile, MidiTrack, Message
 import numpy as np
 
-data_test_path = '../data/notes_result2'
+
+if len(sys.argv)>0:
+    data_test_path = sys.argv[1]
+else:
+    data_test_path = './notes_result'
+
 with open(data_test_path, 'rb') as f:
     notes = pickle.load(f)
 
@@ -20,5 +25,5 @@ for note in notes:
     msg.time = t
     track.append(msg)
 mid.tracks.append(track)
-mid.save('LSTM_music.mid')
+mid.save('music.mid')
 
