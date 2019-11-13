@@ -1,0 +1,24 @@
+#!/bin/bash
+cd 1_layer_128_nodes
+sbatch launcher.sh
+cd ..  
+cd 2_layer_64_nodes   
+sbatch launcher.sh
+cd ..
+cd 4_layer_128_nodes
+sbatch launcher.sh
+cd ..
+cd 1_layer_64_nodes   
+sbatch launcher.sh
+cd ..
+cd 3_layer_128_nodes  
+sbatch launcher.sh
+cd ..
+cd 4_layer_64_nodes
+sbatch launcher.sh
+cd ..
+cd 2_layer_128_nodes  
+sbatch launcher.sh
+cd ..
+cd 3_layer_64_nodes
+cd ..
