@@ -56,7 +56,7 @@ One of the first questions we were opposed to was how to encode music in order t
 To simplify the problem we decided to abstract the notes duration and just use the notes pitch. \\
 
 \subsection{Enumerating the notes}
-Our first attempt was done inspired by some code found on the internet to produce video games music. \textbf{add reference}\\
+Our first attempt was done inspired by some code found on the internet to produce video games music\footnote{https://github.com/Skuldur/Classical-Piano-Composer}.\\
 To extract the notes the notes from midi file we used a library called \textit{Music21}. It provided us with the notes names or chord names that were played. From there we have a sequence of notes names. Then we just assign the notes a number from 1 to the length of the vocabulary (notes and chord names).
 For the prediction we used a vector of all the notes and a with 1 for the next note that follows the sequence and 0 for the others.\\
 After several experiments using a as the last layer a Fully connected NN with a \textit{softmax} activation function and taking the note with the biggest probability to be the next one as the prediction of the next note, the results were disappointing
@@ -65,7 +65,7 @@ After several experiments using a as the last layer a Fully connected NN with a 
 \subsection{Notes as Integers}
 Our second approach was to translate directly a note pitch into an integer. 
 The lower the pitch the bigger the integer.
-This could be done thanks to another library called \textit{mido}, and was inspired from a project on github. \textbf{ add reference}\\
+This could be done thanks to another library called \textit{mido}, and was inspired from a project on github\footnote{https://github.com/subpath/Keras\_music\_gereration}. \\
 And for the prediction we used a linear regression as the last layer of the RNN architecture. 
 Since the notes are just integers and not floating numbers the result was truncated in order to transform it later into a note.\\
 This approach made more sense.
