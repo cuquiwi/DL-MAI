@@ -84,7 +84,7 @@ In the experiments, we mainly focus on the three different kind of models as des
 
 
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \hspace*{-2cm}  
 	\begin{minipage}[b]{0.33\linewidth}
 		\centering
@@ -125,7 +125,7 @@ In the experiments, we mainly focus on the three different kind of models as des
 
 
 \subsection{LSTM}
-\begin{figure}[ht] 
+\begin{figure}[H] 
 	\hspace*{-2cm}  
 	\begin{minipage}[b]{0.33\linewidth}
 		\centering
@@ -166,7 +166,7 @@ In the experiments, we mainly focus on the three different kind of models as des
 \subsection{GRU}
 Last we run experiments with the GRU variant of RNN's. 
 
-\begin{figure}[ht] 
+\begin{figure}[H] 
 	\hspace*{-2cm}  
 	\begin{minipage}[b]{0.33\linewidth}
 		\centering
@@ -204,8 +204,21 @@ Last we run experiments with the GRU variant of RNN's.
 	\caption{Results from GRU models} 
 \end{figure}
 
-\subsubsection{Number of nodes}
-\subsubsection{Number of layers}
+\section{Evaluation}
+
+\subsection{With plots of the loss function}
+We cannot evaluate the quality of the music generated with those plots.
+In one hand we cannot really validate the the training data with a the test data, since the test data are two different compositions and it is \textit{impossible} that the network predicts the sequences of a new song.
+It is normal that the the validation and training loss error grow apart in the plots.\\
+But in the other hand, since we are training with a particular theme: Chopin's Nocturnes, we do not want them to grow too much apart, we want to generalize the theme and the network learns the \textit{style} of Chopin's Nocturnes.\\
+\\
+
+With the exception of Vanilla RNN's, the validation loss error tends to grow and then reach a point were it \textit{stabilizes} or even in some cases it decreases.\\
+Those parts can be explained as when the model learns the training music a little, 
+
+
+\subsection{Comparing the music}
+
 
 
 \section{Conclusion}
