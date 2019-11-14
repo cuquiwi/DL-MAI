@@ -167,6 +167,12 @@ The RNN model with 3 layers shows the most divergent loss functions between the 
 \caption{Results from LSTM models} 
 \end{figure}
 
+In \textit{figure 3} we can observe a similar trend for the loss functions of different models and in general less sporadic fluctuations then the RNN ones . The loss starts with a significant drop to a local minimum before gradually rising again. At different epochs we then observe a ceiling for the function and a consecutive decrease. This trend however is not noticeable for the simple 1 layered model as it keeps increasing in loss, even after the experiment's limit of  200 epochs.
+\\
+For a 64 nodes model, we can conclude overfitting will occur after the local minimum of the validation loss function at around +30 epochs for more then one layer models and around +45  epochs for the single layered one. For the 128 nodes variant we observe a significant increase in epochs needed for overfitting the 1 layer model compared to the other ones. While they have their loss minimum at 25 epochs, the single layer reach it at 75 epochs.
+\\
+As for the training part of the loss functions, we observe much smoother ones then those of the trained RNN models.
+
 \subsection{GRU}
 Last we run experiments with the GRU variant of RNN's. 
 
