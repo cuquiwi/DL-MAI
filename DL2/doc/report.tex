@@ -275,12 +275,13 @@ One of our main problems that we can see is how bad the accuracy was when compar
 This is not surprising, since,  even though the compositor was the same and the style was similar (we only worked on the Chopin's Nocturnes), the songs in the validation set were different and new from the training set.\\
 \\
 
-The music generated is weird and messy, it is clear it was not  a musician who wrote it. But we detected some hints of 
-\textbf{Talk more about the results, were they good? what happened? What was the best architecture}\\
+The music generated is weird and messy, it is clear it was not  a musician who wrote it. But we detected some hints of Chopin's Nocturne essence.
+The LSTM and GRU models kind of learn something, and each different architecture produces different musics.\\
 \\
 
 For further work on this we could see the effect of changing the \textit{windowing} for the sequence of notes in the training set.
 And to produce more realistic music add the tempo to the pitch to produce real notes.\\
+Also add more epochs to see if the model can learn better and yield better results could be another interesting experiment.\\
 We do believe that some interesting music can be generated with RNNs but never as good and creative as humans.
 
 \bibliographystyle{apacite}
