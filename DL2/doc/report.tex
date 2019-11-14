@@ -217,6 +217,12 @@ With the exception of Vanilla RNN's, the validation loss error tends to grow and
 Those parts can be explained as when the model learns the training music a little, 
 
 
+
+\subsubsection{Vanilla RNN}
+If we have a look at the resulting plots of \textit{figure 2}, we see large fluctuation of the loss function when validating the models. The general trend of the loss for a 64 node per layer model is a drop around 0.025 between 25 and 50 epochs. The model with 3 hidden layers starts to gain the most lost the quickest and the simplest one with one layer continues to drop to a loss of around 0.024. The validation of the 128 nodes variant  fluxes the most and tends to average around 0.026 for any amount of layers.
+\\
+The RNN model with 3 layers shows the most divergent loss functions between the 64 and 128 nodes variant. For the 4 layer variants we can observe a huge spike in validation loss when training loss spikes. This does not immediately indicates a correlation between both functions rather it could be similar impactful, yet different entries that generated a big spike in both training an validation in the proximity of that epoch.
+
 \subsection{Comparing the music}
 
 
