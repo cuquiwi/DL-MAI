@@ -215,6 +215,11 @@ Last we run experiments with the GRU variant of RNN's.
 	\label{fig:GRUplots}
 \end{figure}
 
+For the trained GRU models (\textit{figure 4}) we can observe similar trends as in the LSTM models. GRU models tend to reach a local minimum in their validation loss function around 5 epochs earlier then the LSTM models. 
+\\
+We can observe a higher maximum in the validation loss of the 3 layer models compared to the equivalent LSTM models for both 64 And 128 nodes. For the 2 layer models, we see a higher increase in validation loss for the more complex 128 nodes variant then the LSTM for small number of epochs (< 100) . However, the validation loss of the less complex 2 layer model catches up around 150 epochs and achieves the highest maximum of both models at 200 epochs.
+
+
 \section{Evaluation}
 
 \subsection{With plots of the loss function}
