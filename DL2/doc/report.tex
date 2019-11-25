@@ -120,10 +120,11 @@ In the experiments, we mainly focus on the three different kind of models as des
 		\includegraphics[width=\linewidth]{../TESTS_RESULTS/RNN_tests/plots/4_comp.png} 
 	\end{minipage} 
 	\caption{Results from RNN models} 
+\label{fig:RNNplots}
 \end{figure}
 
 
-If we have a look at the resulting plots of \textit{figure 2}, we see large fluctuation of the loss function when validating the models. The general trend of the loss for a 64 node per layer model is a drop around 0.025 between 25 and 50 epochs. The model with 3 hidden layers starts to gain the most lost the quickest and the simplest one with one layer continues to drop to a loss of around 0.024. The validation of the 128 nodes variant  fluxes the most and tends to average around 0.026 for any amount of layers.
+If we have a look at the resulting plots of \textbf{figure}~\ref{fig:RNNplots}, we see large fluctuation of the loss function when validating the models. The general trend of the loss for a 64 node per layer model is a drop around 0.025 between 25 and 50 epochs. The model with 3 hidden layers starts to gain the most lost the quickest and the simplest one with one layer continues to drop to a loss of around 0.024. The validation of the 128 nodes variant  fluxes the most and tends to average around 0.026 for any amount of layers.
 \\
 The RNN model with 3 layers shows the most divergent loss functions between the 64 and 128 nodes variant. For the 4 layer variants we can observe a huge spike in validation loss when training loss spikes. This does not immediately indicates a correlation between both functions rather it could be similar impactful, yet different entries that generated a big spike in both training an validation in the proximity of that epoch.
 
@@ -165,9 +166,10 @@ The RNN model with 3 layers shows the most divergent loss functions between the 
 		\includegraphics[width=\linewidth]{../TESTS_RESULTS/LSTM_tests/plots/4_comp.png} 
 	\end{minipage} 
 \caption{Results from LSTM models} 
+\label{fig:LSTMplots}
 \end{figure}
 
-In \textit{figure 3} we can observe a similar trend for the loss functions of different models and in general less sporadic fluctuations then the RNN ones . The loss starts with a significant drop to a local minimum before gradually rising again. At different epochs we then observe a ceiling for the function and a consecutive decrease. This trend however is not noticeable for the simple 1 layered model as it keeps increasing in loss, even after the experiment's limit of  200 epochs.
+In \textbf{figure}~\ref{fig:LSTMplots} we can observe a similar trend for the loss functions of different models and in general less sporadic fluctuations then the RNN ones . The loss starts with a significant drop to a local minimum before gradually rising again. At different epochs we then observe a ceiling for the function and a consecutive decrease. This trend however is not noticeable for the simple 1 layered model as it keeps increasing in loss, even after the experiment's limit of  200 epochs.
 \\
 For a 64 nodes model, we can conclude overfitting will occur after the local minimum of the validation loss function at around +30 epochs for more then one layer models and around +45  epochs for the single layered one. For the 128 nodes variant we observe a significant increase in epochs needed for overfitting the 1 layer model compared to the other ones. While they have their loss minimum at 25 epochs, the single layer reach it at 75 epochs.
 \\
@@ -224,8 +226,8 @@ We can observe a higher maximum in the validation loss of the 3 layer models com
 
 \subsection{With plots of the loss function}
 We cannot evaluate the quality of the music generated with those plots.
-In one hand we cannot really validate the training data with a validation data, since the validation data are two different compositions and it is \textit{impossible} that the network predicts the sequences of a new song base solely .
-It is normal that the the validation and training loss error grow apart in the plots.\\
+In one hand we cannot really validate the training data with a validation data, since the validation data are two different compositions and it is \textit{impossible} that the network predicts the sequences of a new song base solely.
+It is normal that the the validation and training loss error grow apart in the plots.
 But in the other hand, since we are training with a particular theme: Chopin's Nocturnes, we do not want them to grow too much apart, we want to generalize the theme and the network learns the \textit{style} of Chopin's Nocturnes.\\
 So in for one part we cannot avoid overfitting, and even we want it to overfit, but we do not want that this overfitting is too important in order to generate \textit{new} music.
 \\
