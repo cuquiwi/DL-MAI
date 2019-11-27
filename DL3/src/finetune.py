@@ -8,6 +8,7 @@ from keras.callbacks import EarlyStopping
 from keras.preprocessing.image import ImageDataGenerator
 from vgg16_places_365 import VGG16_Places365
 from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -240,4 +241,4 @@ if __name__ == "__main__":
     predicted_labels = le.inverse_transform(predicted_labels)
 
     # Print results
-    print(std_mc_acc(test_labels, predicted_labels))
+    print(accuracy_score(test_labels, predicted_labels))
