@@ -14,19 +14,19 @@
 
 ### Performance
 
-## Source: VGG16 ImageNet
+## Source: VGG16 ImageNet (Zenne)
 
 ### Training
 
 ### Performance
 
-## Config: SVM at the end
+## Config: SVM at the end (Zenne)
 
 ### Training
 
 ### Performance
 
-## Method: fine-tuning
+## Method: fine-tuning (Zenne)
 
 ### Training
 
