@@ -14,11 +14,16 @@ import numpy as np
 from IPython.display import Image
 from keras.optimizers import Adam
 import pickle
+import os
+from sklearn.metrics import classification_report, confusion_matrix
+
+name = "MobileNet_vanilla"
 
 
 ### Data
 
 batch_size = 50
+num_of_test_samples = 400
 
 # Load Dataset
 data_gen = ImageDataGenerator(
@@ -37,14 +42,18 @@ valid_gen = data_gen.flow_from_directory('../../data/validation', color_mode='rg
 
 
 ### Modeling
+border = 1
+border = -border
 
 base_model = keras.applications.mobilenet.MobileNet(input_shape=None, alpha=1.0, depth_multiplier=1, dropout=1e-3, include_top=True, weights='imagenet', input_tensor=None, pooling=None, classes=1000)
-x = base_model.layers[-6].output
+x = base_model.layers[-1].output
 predictions = Dense(5, activation='softmax')(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 
 for layer in model.layers[:-5]:
     layer.trainable = False
+
+    
 
 
 model.summary()
@@ -55,5 +64,27 @@ hist = model.fit_generator(train_gen, validation_data=valid_gen,
         epochs=100, steps_per_epoch=len(train_gen), 
         validation_steps=len(valid_gen))
 
-with open('trainHistoryDict', 'wb') as file_pi:
+
+
+### Saving of all data
+# Open the file
+with open(name + '.summary','w') as fh:
+    # Pass the file handle in as a lambda function to make it callable
+    model.summary(print_fn=lambda x: fh.write(x + '\n'))
+with open(name + ".history", 'wb') as file_pi:
     pickle.dump(hist.history, file_pi)
+# serialize model to JSON
+model_json = model.to_json()
+with open(name + ".json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save_weights(name + ".h5")
+
+#Confution Matrix and Classification Report
+Y_pred = model.predict_generator(valid_gen, num_of_test_samples // batch_size+1)
+y_pred = np.argmax(Y_pred, axis=1)
+print('Confusion Matrix')
+print(confusion_matrix(valid_gen.classes, y_pred))
+print('Classification Report')
+target_names = ["tulip", "sunflower", "rose", "dandelion", "daisy"]
+print(classification_report(valid_gen.classes, y_pred, target_names=target_names))
