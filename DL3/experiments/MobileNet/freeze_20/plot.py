@@ -1,34 +1,38 @@
 import matplotlib.pyplot as plt
 import pickle
 import os
+import sys
+import glob
 
 def load_test(file_name):
-	f = open(file_name, "rb+")
+	f = open(file_name, "rb")
 	obj = pickle.load(f)
 	return obj
 
-path = "../trainHistoryDict"
+path = glob.glob("*.history")[0]
 
 data = load_test(path)
 
-eps = 50
+
+eps = len(data["loss"])
 
 
 
 ## Plot different layers for 64 nodes training
 epochs = range(1, eps+1)
-plt.title("MobileNet training")
+plt.title("Loss")
 # plt.ylabel("Amount")
 plt.xlabel("Epochs")
 
-plt.plot(epochs, data["loss"][0:eps], color="blue", label="loss")
-plt.plot(epochs, data["acc"][0:eps], color="red", label="accuracy")
+plt.plot(epochs, data["loss"][0:eps], color="blue", label="training")
+plt.plot(epochs, data["val_loss"][0:eps], color="red", label="validation")
 plt.legend()
-plt.savefig("../../../plots/MobileNet_training.png")
+plt.savefig("loss.png")
 
 plt.clf()
-plt.plot(epochs, data["val_loss"][0:eps], color="green", label="val_loss")
-plt.plot(epochs, data["val_acc"][0:eps], color="orange", label="val_accuracy")
+plt.title("Accuracy")
+plt.plot(epochs, data["acc"][0:eps], color="green", label="training")
+plt.plot(epochs, data["val_acc"][0:eps], color="orange", label="validation")
 plt.legend()
-plt.savefig("../../../plots/MobileNet_validation.png")
+plt.savefig("accuracy.png")
 

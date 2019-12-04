@@ -1,0 +1,25 @@
+#!/bin/bash
+cd freeze_1
+python plot.py
+cd ..  
+cd freeze_2
+python plot.py
+cd ..
+cd freeze_3
+python plot.py
+cd ..
+cd freeze_4
+python plot.py
+cd ..
+cd freeze_5
+python plot.py
+cd ..
+cd freeze_10
+python plot.py
+cd ..
+cd freeze_15
+python plot.py
+cd ..
+cd freeze_20
+python plot.py
+cd ..
