@@ -98,19 +98,11 @@ For the second experiment we will use VGG16 model trained for the places dataset
 We tryed to extract features from the convolutional layers of a pretrained model from our images in our dataset using l2norm.
 And trained a SVM with those features.
 
-We obtained an *88.30%* accuracy!  
+We obtained an **88.30%** accuracy!  
 Compared to a maximum of around 86% accuracy for retraining some layers of the model and around 82% accuracy for training the model ourselfs.  
 
 I think this is due thanks to our _small_ dataset and the features extracted from ImageNet are suficiently good to identify and separate flowers.  
 
 For this we only extrated features from the conv2\_block3, conv3\_block4 and conv1\_block5, conv2\_block5, conv3\_block5 layers.
-
-
-## Method: fine-tuning + feature extraction
-
-### Training
-
-### Performance
-
 
 
