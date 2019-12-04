@@ -46,12 +46,33 @@ Then the overfitting goes on.
 The accuracy improved but at the high cost of overlerning the training set.
 
 ### DropAdam
-Let's combine Dropout with Adam in order to get the best of both worlds.
+Let's combine Dropout with Adam in order to get the best of both worlds.  
 
 [Accuracy](experiments/DropAdam/fine_tuning_accuracy.pdf)
 [Loss](experiments/DropAdam/fine_tuning_loss.pdf)
 
 The result is similar as with just some Dropout but with a little improvement in the accuracy.
+
+### Unfreezing some layers
+
+What happens if instead of using the features of the last layers we train them.  
+
+We got this results for unfreezing just the last layer.  
+
+[Accuracy](experiments/image1unfreeze/fine_tuning_accuracy.pdf)
+[Loss](experiments/image1unfreeze/fine_tuning_loss.pdf)
+
+And we got these results unfreezing the last 2 layers.
+
+[Accuracy](experiments/image2unfreeze/fine_tuning_accuracy.pdf)
+[Loss](experiments/image2unfreeze/fine_tuning_loss.pdf)
+
+This is surprisingly really good. We got an early stopping it trained really fast and the best accurracy fot the validation is surprinsingly good.  
+
+But if we continue doing this we get some disapointings results.
+
+[Accuracy](experiments/image1unfreeze/3unfreeze_accuracy.pdf)
+[Loss](experiments/image1unfreeze/3unfreeze_loss.pdf)
 
 ## Source: VGG16 places
 For the second experiment we will use VGG16 model trained for the places datasets
