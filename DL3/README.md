@@ -37,7 +37,7 @@ Indeed the overfit was reduced and it took a little but longer to the validation
 
 ### Adam
 
-Then in order to improve the validation accuracy we changed the optimizer for Adaptive momomentum with a bigger learning rate.  
+Then in order to improve the validation accuracy we changed the optimizer for Adaptive momentum with a bigger learning rate.  
 
 [Accuracy](experiments/Adam/fine_tuning_accuracy.pdf)
 [Loss](experiments/Adam/fine_tuning_loss.pdf)
@@ -156,4 +156,3 @@ Highest in vall_acc when experimenting with freeze layers.
 | MobileNet | 4      | 25     | 0.4896   | 0.8715  |
 | MobileNet | 15     | 21     | 0.5732   | 0.8715  |
 | MobileNet | 10     | 14     | 0.6948   | 0.8551  |
-
