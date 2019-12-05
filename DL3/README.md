@@ -117,7 +117,7 @@ Highest in vall_acc when experimenting with freeze layers.
 
 
 
-![val_acc](/home/senne/2019-2020/DL/DL-MAI/DL3/experiments/VGG16/accum/val_acc.png)
+![val_acc](experiments/VGG16/accum/val_acc.png)
 
 
 
@@ -129,7 +129,7 @@ Highest in vall_acc when experimenting with freeze layers.
 
 
 
-![val_acc](/home/senne/2019-2020/DL/DL-MAI/DL3/experiments/VGG19/accum/val_acc.png)
+![val_acc](experiments/VGG19/accum/val_acc.png)
 
 
 
@@ -139,7 +139,7 @@ Highest in vall_acc when experimenting with freeze layers.
 
 ## MobileNet
 
-![val_acc](/home/senne/2019-2020/DL/DL-MAI/DL3/experiments/MobileNet/accum/val_acc.png)
+![val_acc](experiments/MobileNet/accum/val_acc.png)
 
 
 
