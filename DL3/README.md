@@ -7,7 +7,7 @@
 In the previous assignment we managed to have around 75% accuracy for our model.  
 We will try to improve this with transfer learning  
 
-Accuracy](../DL1/plots/nodrop_cnn_acc.pdf)
+[Accuracy](../DL1/plots/nodrop_cnn_acc.pdf)
 [Loss](../DL1/plots/nodrop_cnn_loss.pdf)
 
 
