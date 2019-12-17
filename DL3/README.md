@@ -135,8 +135,6 @@ Highest in vall_acc when experimenting with freeze layers.
 
 
 
-## 
-
 ## MobileNet
 
 ![val_acc](/home/senne/2019-2020/DL/DL-MAI/DL3/experiments/MobileNet/accum/val_acc.png)

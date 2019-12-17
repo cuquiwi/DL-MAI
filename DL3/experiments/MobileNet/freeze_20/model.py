@@ -53,7 +53,7 @@ x = base_model.layers[-1].output
 predictions = Dense(5, activation='softmax')(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 
-for layer in model.layers[:-2]:
+for layer in model.layers[:-20]:
     layer.trainable = False
 
     
